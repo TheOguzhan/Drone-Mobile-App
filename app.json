@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Drone-Mobile-App",
+    "slug": "Drone-Mobile-App",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
