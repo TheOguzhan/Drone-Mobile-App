@@ -1,12 +1,16 @@
 import React from "react";
-import auth from '@react-native-firebase/auth';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import { useRouter, useSegments } from "expo-router";
 
-export const AuthContext = React.createContext(null);
+export type AuthContextType = {
+    user: FirebaseAuthTypes.User
+}
+
+export const AuthContext = React.createContext<AuthContextType | null>(null);
 
 export const useAuth = () => React.useContext(AuthContext);
 
-const useProtectedRoute = (user) => {
+const useProtectedRoute = (user: FirebaseAuthTypes.User | null) => {
     const rootSegment = useSegments()[0];
     const router = useRouter();
 
@@ -14,15 +18,19 @@ const useProtectedRoute = (user) => {
         if (user === undefined)
             return;
         if (!user && rootSegment !== "(auth)") {
-            router.replace("/login");
+            router.replace("/(auth)/login");
         } else if (user && rootSegment !== "(app)") {
-            router.replace("/");
+            router.replace("/(app)");
         }
     }, [user, rootSegment])
 }
 
-export const AuthProvider: React.FC = ({ children }) => {
-    const [user, setUser] = React.useState(null);
+interface ProviderProps {
+    children: React.ReactNode
+}
+
+export const AuthProvider: React.FC<ProviderProps> = ({ children }) => {
+    const [user, setUser] = React.useState<FirebaseAuthTypes.User | null>(null);
     React.useEffect(() => {
         auth().onAuthStateChanged(setUser)
     }, []);
@@ -31,6 +39,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 
 
     return <AuthContext.Provider value={{
-        user
+        user: user as FirebaseAuthTypes.User
     }}>{children}</AuthContext.Provider>
 }

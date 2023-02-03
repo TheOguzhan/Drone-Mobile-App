@@ -59,7 +59,9 @@ const Login: React.FC = () => {
       <TouchableOpacity
         className="border-2 bg-slate-100 border-gray-800 px-5 py-2 my-1 rounded-xl"
         activeOpacity={0.8}
-        onPress={() => console.log(JSON.stringify(state))}
+        onPress={() => {
+          login(state.email, state.password);
+        }}
       >
         <Text className="text-center text-l ">Login</Text>
       </TouchableOpacity>

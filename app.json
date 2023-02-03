@@ -3,11 +3,18 @@
     "name": "Drone-Mobile-App",
     "slug": "Drone-Mobile-App",
     "version": "1.0.0",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "scheme": "myapp",
     "jsEngine": "hermes",
     "web": {
       "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c0f3a4e4-1e64-4e21-81fa-494d84f94c98"
+      }
     }
   }
 }
