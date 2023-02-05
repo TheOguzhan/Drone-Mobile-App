@@ -1,0 +1,4 @@
+location request
+    -> integration
+QR code scanning
+    -> uuid/purchase tracking

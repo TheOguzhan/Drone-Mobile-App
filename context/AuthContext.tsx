@@ -20,7 +20,7 @@ const useProtectedRoute = (user: FirebaseAuthTypes.User | null) => {
         if (!user && rootSegment !== "(auth)") {
             router.replace("/(auth)/login");
         } else if (user && rootSegment !== "(app)") {
-            router.replace("/(app)");
+            router.replace("/(app)/");
         }
     }, [user, rootSegment])
 }
