@@ -1,4 +1,5 @@
-location request
-    -> integration
 QR code scanning
     -> uuid/purchase tracking
+
+install expo-location for IOS
+install vision-camera for IOS
