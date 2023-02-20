@@ -6,6 +6,7 @@ import { Feather } from '@expo/vector-icons';
 
 const Item = () => {
   const { item_id } = useSearchParams();
+  console.log(item_id);
   const item: ItemInterface = DATA.filter(data_item => data_item.item_id === item_id)[0];
   return (
     <View className='flex-1'>

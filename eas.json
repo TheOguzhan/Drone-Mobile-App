@@ -15,7 +15,13 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {}
+    "production": {},
+    "preview2": {
+      "android": {
+        "gradleCommand": ":app:assembleRelease",
+        "buildType": "apk"
+      }
+    }
   },
   "submit": {
     "production": {}
