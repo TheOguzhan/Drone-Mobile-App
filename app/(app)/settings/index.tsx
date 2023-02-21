@@ -2,7 +2,7 @@ import { Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useAuth } from '../../../context/AuthContext'
 import { logout } from '../../../firebase/functions';
-import { Link, useRouter } from 'expo-router';
+import { Link } from 'expo-router';
 
 const index = () => {
   const { user } = useAuth();
@@ -35,7 +35,7 @@ const index = () => {
           className="border-2 bg-slate-100 border-gray-800 px-5 py-2 my-1 rounded-xl"
           activeOpacity={0.8}
         >
-          <Link href={{ pathname: '/(app)/QR' }} className="text-center text-l ">QR Scanner</Link>
+          <Link href={{ pathname: '/(app)/orders' }} className="text-center text-l ">Orders</Link>
         </TouchableOpacity>
       </View>
     </View>

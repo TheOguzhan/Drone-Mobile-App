@@ -1,7 +1,7 @@
 import { Image, View, FlatList, Text, TextInput, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'expo-router';
-import { Item, DATA } from '../../data';
+import { Item } from '../../context/OrderContext';
 import { Feather } from '@expo/vector-icons';
 import firestore from '@react-native-firebase/firestore'
 
@@ -19,13 +19,15 @@ const index: React.FC = () => {
       .onSnapshot((querySnapshot) => {
         const items = [];
         querySnapshot.forEach(documentSnapshot => {
-          items.push({ ...documentSnapshot.data(), item_id: documentSnapshot.id})
+          items.push({ ...documentSnapshot.data(), item_id: documentSnapshot.id })
         })
         setItems(items);
         setLoading(false);
       })
-      return () => subscriber();
-  }, [])
+    return () => subscriber();
+  }, []);
+
+
   if (loading) {
     return <View className="flex-1">
       <View className="h-28 bg-pink-800 w-full pt-10 pb-6 px-4 rounded-md justify-around items-center flex-row">

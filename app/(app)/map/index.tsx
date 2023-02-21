@@ -49,7 +49,20 @@ const index = () => {
         name: "Maiden's Tower",
         description: "Cargo warehouse for Kadıköy and Üsküdar Province",
         address: "Salacak, 34668 Üsküdar/İstanbul"
-    }]
+    },
+    {
+        geoPoint: [10.011271352302977, 53.547907488975014],
+        name: 'a&o hostels',
+        description: "Cargo warehouse for Hamburg General",
+        address: 'Amsinckstraße 2-10, 20097 Hamburg, Germany',
+    },
+    {
+        geoPoint: [9.997799416552724, 53.63446198883239],
+        name: 'Hamburg Flughafen',
+        description: "Airport warehouse",
+        address: '9.997799416552724',
+    },
+    ]
     const [point, setPoint] = useState<GeoJSON.Position>(flyPoints[0].geoPoint);
     useEffect(() => {
         const pointIndex = flyPoints.findIndex(flyPoint => flyPoint.geoPoint.every((coord, i) => coord === point[i]));
